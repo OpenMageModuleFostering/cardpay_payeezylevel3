@@ -20,7 +20,7 @@
 <congig>
     <modules>
         <Cardpay_PayeezyLevel3>
-            <version>1.0.3</version>
+            <version>1.0.4</version>
         </Cardpay_PayeezyLevel3>
     </modules>
     <global>
