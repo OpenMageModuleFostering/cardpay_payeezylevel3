@@ -1,0 +1,181 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Cardpay Solutions, Inc.
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Open Software License (OSL 3.0)
+ * that is available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/osl-3.0.php
+ *
+ * PHP version 5
+ * 
+ * @category  Cardpay
+ * @package   Cardpay_PayeezyLevel3
+ * @copyright Copyright (c) 2015 Cardpay Solutions, Inc. (http://www.cardpaysolutions.com)
+ * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
+ */
+-->
+<config>
+    <sections>
+        <payment>
+            <groups>
+                <payeezylevel3 translate="label" module="paygate">
+                    <label>First Data Payeezy B2B Level 3</label>
+                    <sort_order>700</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <comment><![CDATA[<a href="http://www.pcardsystems.com/magento?pid=47d14a305e64a009" target="_blank">Click here to sign up for a Payeezy B2B merchant account</a>]]></comment>
+                    <fields>
+                        <active translate="label">
+                            <label>Enabled</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </active>
+                        <title translate="label">
+                            <label>Title</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>2</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </title>
+                        <test_mode translate="label">
+                            <label>Test Mode</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <comment><![CDATA[If test mode is enabled, your transactions will be sent to a test merchant account.]]></comment>
+                            <sort_order>3</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </test_mode>
+                        <merchant_token translate="label">
+                            <label>Merchant Token</label>
+                            <comment><![CDATA[Merchant Token provided by Payeezy after you establish your account. Contact sales at (866) 588-0503 to obtain your merchant token.]]></comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>4</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </merchant_token>
+                        <commodity_code translate="label">
+                            <label>Default Commodity Code</label>
+                            <comment><![CDATA[Enter the 5 digit commodity code that best describes the type of products that you sell. <a href="https://a37186aa94a08d9086cb-3c54b90d7c788e49a2e99bea979bb225.ssl.cf1.rackcdn.com/commodity_codes.pdf">Click here to download the PDF list of valid commodity codes.</a> This value is required to obtain Level 3 Interchange rates.]]></comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>5</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <validate>validate-number validate-length minimum-length-5 maximum-length-5</validate>
+                        </commodity_code>
+                        <order_status translate="label">
+                            <label>New order status</label>
+                            <comment><![CDATA[The status of the order after the payment is successful.]]></comment>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_order_status</source_model>
+                            <sort_order>6</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </order_status>
+                        <payment_action translate="label">
+                            <label>Payment Action</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>payeezylevel3/source_paymentAction</source_model>
+                            <sort_order>7</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </payment_action>
+                        <currency translate="label">
+                            <label>Accepted Currency</label>
+                            <comment><![CDATA[Account must be properly configured to process currencies other than USD. Contact sales for additional information: (866) 588-0503.]]></comment>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_currency</source_model>
+                            <sort_order>8</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </currency>
+                        <cctypes translate="label">
+                            <label>Credit Card Types</label>
+                            <comment><![CDATA[Select which credit card types are accepted.]]></comment>
+                            <frontend_type>multiselect</frontend_type>
+                            <source_model>payeezylevel3/source_cctype</source_model>
+                            <sort_order>9</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </cctypes>
+                        <useccv translate="label">
+                            <label>Credit Card Verification</label>
+                            <comment><![CDATA[Whether the 3 or 4 digit card security code is required.]]></comment>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </useccv>
+                        <use_vault translate="label">
+                            <label>Allow Stored Cards</label>
+                            <comment><![CDATA[Allow a logged in customer to save credit cards for future use. PCI Compliant TransArmor Tokenization.]]></comment>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>11</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </use_vault>
+                        <ta_token translate="label">
+                            <label>TransArmor Token</label>
+                            <comment><![CDATA[TransArmor token provided by Payeezy after you establish your account. Required for Stored Card functionality to work.]]></comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>12</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </ta_token>
+                        <allowspecific translate="label">
+                            <label><![CDATA[Payment from applicable countries:]]></label>
+                            <comment><![CDATA[Set this to "Specific Countries" if you wish to limit what countries may place orders.]]></comment>
+                            <frontend_type>allowspecific</frontend_type>
+                            <sort_order>13</sort_order>
+                            <source_model>adminhtml/system_config_source_payment_allspecificcountries</source_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </allowspecific>
+                        <specificcountry translate="label">
+                            <label><![CDATA[Payment from Specific countries:]]></label>
+                            <comment><![CDATA[Which countries this payment method is available to. This becomes active if the setting above is set to "Specific Countries".]]></comment>
+                            <frontend_type>multiselect</frontend_type>
+                            <sort_order>14</sort_order>
+                            <source_model>adminhtml/system_config_source_country</source_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </specificcountry>
+                        <sort_order translate="label">
+                            <label>Sort Order</label>
+                            <comment><![CDATA[In which order this payment method will appear on the checkout page.]]></comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>15</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <frontend_class>validate-number</frontend_class>
+                        </sort_order>
+                    </fields>
+                </payeezylevel3>
+            </groups>
+        </payment>
+    </sections>
+</config>

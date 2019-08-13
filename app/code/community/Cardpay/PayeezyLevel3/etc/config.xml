@@ -1,0 +1,115 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Cardpay Solutions, Inc.
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Open Software License (OSL 3.0)
+ * that is available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/osl-3.0.php
+ *
+ * PHP version 5
+ * 
+ * @category  Cardpay
+ * @package   Cardpay_PayeezyLevel3
+ * @copyright Copyright (c) 2015 Cardpay Solutions, Inc. (http://www.cardpaysolutions.com)
+ * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
+ */
+-->
+<congig>
+    <modules>
+        <Cardpay_PayeezyLevel3>
+            <version>1.0.0</version>
+        </Cardpay_PayeezyLevel3>
+    </modules>
+    <global>
+        <blocks>
+            <payeezylevel3>
+                <class>Cardpay_PayeezyLevel3_Block</class>
+            </payeezylevel3>
+        </blocks>
+        <models>
+            <payeezylevel3>
+                <class>Cardpay_PayeezyLevel3_Model</class>
+                <resourceModel>payeezylevel3_resource</resourceModel>
+            </payeezylevel3>
+            <payeezylevel3_resource>
+                <class>Cardpay_PayeezyLevel3_Model_Resource</class>
+                <entities>
+                    <creditcard>
+                        <table>payeezylevel3_credit_card</table>
+                    </creditcard>
+                </entities>
+            </payeezylevel3_resource>
+        </models>
+        <resources>
+            <payeezylevel3_setup>
+                <setup>
+                    <module>Cardpay_PayeezyLevel3</module>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </payeezylevel3_setup>
+            <payeezylevel3_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </payeezylevel3_write>
+            <payeezylevel3_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </payeezylevel3_read>
+        </resources>
+        <helpers>
+            <payeezylevel3>
+                <class>Cardpay_PayeezyLevel3_Helper</class>
+            </payeezylevel3>
+        </helpers>
+    </global>
+    <default>
+        <payment>
+            <payeezylevel3>
+                <active>0</active>
+                <model>payeezylevel3/paymentMethod</model>
+                <order_status>processing</order_status>
+                <title>Credit Card (Payeezy B2B)</title>
+                <cctypes>VI,MC,AE,DI,JCB</cctypes>
+                <payment_action>authorize</payment_action>
+                <allowspecific>0</allowspecific>
+                <currency>USD</currency>
+                <useccv>1</useccv>
+                <use_vault>1</use_vault>
+            </payeezylevel3>
+        </payment>
+    </default>
+    <frontend>
+        <layout>
+            <updates>
+                <payeezylevel3 module="Cardpay_PayeezyLevel3">
+                    <file>payeezylevel3.xml</file>
+                </payeezylevel3>
+            </updates>
+        </layout>
+        <routers>
+            <customer>
+                <args>
+                    <modules>
+                        <Cardpay_PayeezyLevel3 after="Mage_Customer">Cardpay_PayeezyLevel3</Cardpay_PayeezyLevel3>
+                    </modules>
+                </args>
+            </customer>
+        </routers>
+        <translate>
+            <modules>
+                <Cardpay_PayeezyLevel3>
+                    <files>
+                        <default>Cardpay_PayeezyLevel3.csv</default>
+                    </files>
+                </Cardpay_PayeezyLevel3>
+            </modules>
+        </translate>
+    </frontend>
+</congig>
