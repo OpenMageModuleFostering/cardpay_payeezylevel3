@@ -42,7 +42,7 @@ class Cardpay_PayeezyLevel3_Block_Form extends Mage_Payment_Block_Form_Cc
     public function canSaveCard()
     {
         $methodRegister = Mage_Checkout_Model_Type_Onepage::METHOD_REGISTER;
-        if (Mage::getModel('payeezylevel3/paymentmethod')->getConfigData('use_vault')
+        if (Mage::getModel('payeezylevel3/paymentMethod')->getConfigData('use_vault')
             && (Mage::getSingleton('customer/session')->isLoggedIn()
             || Mage::getSingleton('checkout/type_onepage')->getCheckoutMethod() == $methodRegister)
         ) {

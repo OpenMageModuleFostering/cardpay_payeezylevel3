@@ -71,7 +71,7 @@ class Cardpay_PayeezyLevel3_Model_Creditcard extends Mage_Core_Model_Abstract
      */
     public function useVault()
     {
-        $payeezylevel3 = Mage::getModel('payeezylevel3/paymentmethod');
+        $payeezylevel3 = Mage::getModel('payeezylevel3/paymentMethod');
         return $payeezylevel3->getConfigData('use_vault');
     }
 
@@ -82,7 +82,7 @@ class Cardpay_PayeezyLevel3_Model_Creditcard extends Mage_Core_Model_Abstract
      */
     public function getCardTypeName()
     {
-        $payeezylevel3 = Mage::getModel('payeezylevel3/paymentmethod');
+        $payeezylevel3 = Mage::getModel('payeezylevel3/paymentMethod');
         return Mage::helper('payeezylevel3')->getCcTypeName($this->getCcType());
     }
 

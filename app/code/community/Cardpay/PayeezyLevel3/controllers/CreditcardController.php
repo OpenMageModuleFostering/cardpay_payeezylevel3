@@ -92,7 +92,7 @@ class Cardpay_PayeezyLevel3_CreditCardController extends Mage_Customer_AccountCo
             $card->addData($data['payment']);
             $card->setData('customer_id', $customerId);
             $card->setData('cardholder_name', $cardholderName);
-            $payeezylevel3 = Mage::getModel('payeezylevel3/paymentmethod');
+            $payeezylevel3 = Mage::getModel('payeezylevel3/paymentMethod');
             try {
                 $token = $payeezylevel3->verify($card);
             } catch (Exception $e) {
@@ -135,7 +135,7 @@ class Cardpay_PayeezyLevel3_CreditCardController extends Mage_Customer_AccountCo
             $card->addData($data['payment']);
             $card->setData('customer_id', $customerId);
             $card->setData('cardholder_name', $cardholderName);
-            $payeezylevel3 = Mage::getModel('payeezylevel3/paymentmethod');
+            $payeezylevel3 = Mage::getModel('payeezylevel3/paymentMethod');
             try {
                 $token = $payeezylevel3->verify($card);
             } catch (Exception $e) {
