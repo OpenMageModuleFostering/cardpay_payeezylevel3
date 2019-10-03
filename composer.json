@@ -1,16 +1,19 @@
 {
-    "name": "OpenMageModuleFostering/Cardpay_PayeezyLevel3",
+    "name": "OpenMageModuleFostering\/Cardpay_PayeezyLevel3",
     "type": "magento-module",
     "license": "Open-Software-License-(OSL)",
     "homepage": "",
     "description": "First Data Payeezy B2B Level 3 payment extension with TransArmor.",
     "authors": [
-    {
-        "name": "Brian McGowan",
-        "email": "bmcgowan@cardpaysolutions.com"
-    }
-],
+        {
+            "name": "Brian McGowan",
+            "email": "bmcgowan@cardpaysolutions.com"
+        }
+    ],
     "suggest": {
-        "magento-hackathon/magento-composer-installer": "*"
-    }
+        "magento-hackathon\/magento-composer-installer": "*"
+    },
+    "keywords": [
+        "openmage-module"
+    ]
 }
